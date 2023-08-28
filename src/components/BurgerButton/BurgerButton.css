@@ -1,0 +1,29 @@
+.button-burger {
+    width: 44px;
+    height: 44px;
+    background: url(../../images/burgerbutton.svg);
+    border: none;
+    background-color: #222;
+    padding: 0;
+    cursor: pointer;
+    color: #fff;
+}
+
+.button-burger_disable {
+    display: none;
+}
+
+.button-burger_close {
+    background: url(../../images/burgerbutton-close.svg);
+    width: 22px;
+    height: 22px;
+    background-position: center;
+}
+
+
+
+@media screen and (min-width: 900px) {
+    .button-burger {
+        display: none;
+    }
+}
