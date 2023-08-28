@@ -25,58 +25,6 @@
     padding-top: 50px;
 }
 
-/* .form-sign {
-    display: flex;
-    flex-direction: column;
-    padding-top: 78px;
-    border: none;
-    margin: 0;
-    min-width: 260px;
-}
-
-.form-sign__input-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-sign__input-name {
-    font-size: 10px;
-    line-height: 12px;
-    font-weight: 400;
-    color: #8b8b8b;
-    margin: 0;
-    padding-bottom: 5px;
-} */
-
-/* .form-sign__input {
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: 400;
-    margin: 0;
-    padding-bottom: 10px;
-    border-bottom: 1px #424242 solid;
-    background-color: #202020;
-    color: #fff;
-    border-right: none;
-} */
-
-.form-sign__input:focus {
-    outline: 0;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px #4285F4 solid; 
-}
-
-/* .form-sign__input-error {
-    font-size: 10px;
-    line-height: 12px;
-    font-weight: 400;
-    color: #EE3465;
-    margin: 0;
-padding: 5px 0;
-} */
-
 .register__button {
     font-size: 12px;
     line-height: 15px;
