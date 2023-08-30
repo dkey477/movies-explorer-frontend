@@ -11,19 +11,19 @@ const location = useLocation()
             <div className='burger-menu__container'>
             <nav>
                 <div className='burger-menu__navigation'>
-                    <Link to='/' className={location.pathname === '/' ? 'link burger-menu__link burger-menu__link_active' : 'burger-menu__link'} onClick={onBurgerLink}>
+                    <Link to='/' className={location.pathname === '/' ? 'link burger-menu__link burger-menu__link_active' : 'link burger-menu__link'} onClick={onBurgerLink}>
                         Главная
                     </Link>
-                    <Link to='/movies' className={location.pathname === '/movies' ? 'link burger-menu__link burger-menu__link_active' : 'burger-menu__link'} onClick={onBurgerLink}>
+                    <Link to='/movies' className={location.pathname === '/movies' ? 'link burger-menu__link burger-menu__link_active' : 'link burger-menu__link'} onClick={onBurgerLink}>
                         Фильмы
                     </Link>
-                    <Link to='/saved-movies' className={location.pathname === '/saved-movies' ? 'link burger-menu__link burger-menu__link_active' : 'burger-menu__link'} onClick={onBurgerLink}>
+                    <Link to='/saved-movies' className={location.pathname === '/saved-movies' ? 'link burger-menu__link burger-menu__link_active' : 'link burger-menu__link'} onClick={onBurgerLink}>
                         Сохранённые фильмы
                     </Link>
                 </div>
 
                 <div className='burger-menu__account'>
-                    <Link to='/profile' className='burger-menu__link-account' onClick={onBurgerLink}>
+                    <Link to='/profile' className='link burger-menu__link-account' onClick={onBurgerLink}>
                         Аккаунт
                         <img
                             src={akklogo}

@@ -48,6 +48,14 @@
     text-align: end;
 }
 
+.form-profile-block__input:focus {
+    outline: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px #4285F4 solid; 
+}
+
 .profile-block__button-edit {
     font-weight: 400;
     font-size: 12px;

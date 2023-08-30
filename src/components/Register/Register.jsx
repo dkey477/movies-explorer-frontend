@@ -13,10 +13,10 @@ function Register() {
                         alt='лого'
                     />
                 </Link>
-                <h2 className='register__title'>Добро пожаловать!</h2>
+                <h1 className='register__title'>Добро пожаловать!</h1>
                 <form className='form-sign'>
                         <div className='form-sign__input-container'>
-                            <p className='form-sign__input-name'>Имя</p>
+                            <label className='form-sign__input-name'>Имя</label>
                             <input
                                 className='form-sign__input'
                                 type='name'
@@ -33,7 +33,7 @@ function Register() {
                             </span>
                         </div>
                         <div className='form-sign__input-container'>
-                            <p className='form-sign__input-name'>E-mail</p>
+                            <label className='form-sign__input-name'>E-mail</label>
                             <input
                                 className='form-sign__input'
                                 type='email'
@@ -50,7 +50,7 @@ function Register() {
                             </span>
                         </div>
                         <div className='form-sign__input-container'>
-                            <p className='form-sign__input-name'>Пароль</p>
+                            <label className='form-sign__input-name'>Пароль</label>
                             <input
                                 className='form-sign__input'
                                 type='password'
@@ -68,7 +68,7 @@ function Register() {
                         </div>
                 </form>
 
-                <button className='register__button' type='submit'>
+                <button className='link register__button' type='submit'>
                     Зарегистрироваться
                 </button>
                 <p className='register__quest'>

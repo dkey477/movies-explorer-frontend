@@ -19,13 +19,13 @@ function Movies({ onBurgerButton, isBurgerMenuOpen, onBurgerLink }) {
             />
             <main className='movies'>
                 <SearchForm />
-                <div className='checkbox'>
+                <form className='checkbox'>
                     <input
                         className='link checkbox__input'
                         type='checkbox'
                     ></input>
                     <span className='checkbox__text'>Короткометражки</span>
-                </div>
+                </form>
                 <MoviesCardList />
             </main>
 

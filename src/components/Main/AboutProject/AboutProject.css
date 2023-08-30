@@ -13,6 +13,7 @@
     border-bottom: 1px #dadada solid;
     margin: 0;
     padding-bottom: 28px;
+    letter-spacing: -0.04em;
 }
 
 .project__table {
@@ -29,6 +30,7 @@
     font-size: 18px;
     line-height: 22px;
     margin: 56px 0 0 0;
+    letter-spacing: -0.04em;
 }
 
 .project__text {
@@ -51,20 +53,20 @@
     margin: 60px 0 0 0;
 }
 
-.project__time_one {
+.project__time-one {
     margin: 0;
     background-color: #3ddc54;
     color: #000;
     line-height: 35px;
 }
 
-.project__time_four {
+.project__time-four {
     margin: 0;
     background-color: #303030;
     line-height: 35px;
 }
 
-.project__time_lang {
+.project__time-lang {
     margin: 0;
     line-height: 35px;
     color: #a0a0a0;
@@ -84,13 +86,14 @@
     .project__table {
         display: flex;
         flex-direction: revert;
-        gap: 39px;
+        gap: 40px;
     }
 
     .project__title {
         font-size: 20px;
         line-height: 24px;
         margin: 69px 0 0 0;
+        letter-spacing: -0.04em;
     }
 
     .project__text {
@@ -121,5 +124,11 @@
     .project__time {
         grid-template-columns: 20% 80%;
         margin: 112px 0 0 0;
+    }
+
+    .project__table {
+        display: flex;
+        flex-direction: revert;
+        gap: 50px;
     }
 }

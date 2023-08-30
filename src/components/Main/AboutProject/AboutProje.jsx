@@ -25,10 +25,10 @@ function AboutProject() {
                 </li>
             </ul>
             <div className='project__time'>
-                <p className='project__time_one'>1 неделя</p>
-                <p className='project__time_four'>4 недели</p>
-                <p className='project__time_lang'>Back-end</p>
-                <p className='project__time_lang'>Front-end</p>
+                <p className='project__time-one'>1 неделя</p>
+                <p className='project__time-four'>4 недели</p>
+                <p className='project__time-lang'>Back-end</p>
+                <p className='project__time-lang'>Front-end</p>
             </div>
         </section>
     );

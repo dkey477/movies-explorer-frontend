@@ -13,10 +13,10 @@ function Login() {
                         alt='лого'
                     />
                 </Link>
-                <h2 className='login__title'>Рады видеть!</h2>
+                <h1 className='login__title'>Рады видеть!</h1>
                 <form className='form-sign'>
                         <div className='form-sign__input-container'>
-                            <p className='form-sign__input-name'>E-mail</p>
+                            <label className='form-sign__input-name'>E-mail</label>
                             <input
                                 className='form-sign__input'
                                 type='email'
@@ -33,7 +33,7 @@ function Login() {
                             </span>
                         </div>
                         <div className='form-sign__input-container'>
-                            <p className='form-sign__input-name'>Пароль</p>
+                            <label className='form-sign__input-name'>Пароль</label>
                             <input
                                 className='form-sign__input'
                                 type='password'

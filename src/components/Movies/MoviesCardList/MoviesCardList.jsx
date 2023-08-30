@@ -17,7 +17,7 @@ function MoviesCardList() {
                 <ul className='movies-list__box'>
                     <MoviesCard />
                 </ul>
-                <button className={`link ${buttonMoreClassName}`}>Ещё</button>
+                <button className={`link ${buttonMoreClassName}`} type='button'>Ещё</button>
             </section>
     );
 }

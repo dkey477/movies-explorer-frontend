@@ -15,7 +15,7 @@ function BurgerButton({onBurgerButton, isBurgerMenuOpen}) {
     return (
         <button
             className={`link ${buttonBurgerClassName}`}
-            type='button'onClick={onBurgerButton}
+            type='button' onClick={onBurgerButton}
         ></button>
     );
 }

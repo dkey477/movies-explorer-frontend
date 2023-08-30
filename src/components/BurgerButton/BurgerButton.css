@@ -1,6 +1,6 @@
 .button-burger {
     width: 44px;
-    height: 44px;
+    height: 42px;
     background: url(../../images/burgerbutton.svg);
     border: none;
     background-color: #222;
@@ -18,6 +18,7 @@
     width: 22px;
     height: 22px;
     background-position: center;
+    z-index: 1;
 }
 
 

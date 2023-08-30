@@ -13,6 +13,7 @@
     border-bottom: 1px #dadada solid;
     margin: 0;
     padding-bottom: 28px;
+    letter-spacing: -0.04em;
 }
 
 .techs__title {
@@ -22,6 +23,7 @@
     margin: 0;
     padding-top: 60px;
     text-align: center;
+    letter-spacing: -0.04em;
 }
 
 .techs__subtitle {
@@ -51,6 +53,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 57px;
+    letter-spacing: -0.04em;
 }
 
 @media screen and (min-width: 768px) {
@@ -107,5 +110,9 @@
     .techs__list {
         gap: 10px 15px;
         padding: 104px 0 0 0;
+    }
+
+    .techs__item {
+        font-size: 14px;
     }
 }

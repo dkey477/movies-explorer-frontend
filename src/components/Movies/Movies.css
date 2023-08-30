@@ -15,7 +15,7 @@
 }
 
 .checkbox__input {
-    background-image: url(../../images/tumbler-off.png);
+    background-image: url(../../images/tumbler-off.svg);
     width: 36px;
     height: 20px;
     cursor: pointer;
@@ -26,7 +26,7 @@
 }
 
 .checkbox__input:checked {
-    background-image: url(../../images/tumbler-on.png);
+    background-image: url(../../images/tumbler-on.svg);
 }
 
 .checkbox__text {

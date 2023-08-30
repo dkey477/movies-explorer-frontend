@@ -35,12 +35,16 @@
     text-decoration: none;
     cursor: pointer;
     color: #fff;
+    letter-spacing: -0.04em;
 }
 
 .portfolio__arrow {
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -59,7 +63,7 @@
     }
 
     .portfolio__link {
-        font-size: 28px;
+        font-size: 30px;
         line-height: 50px;
     }
 

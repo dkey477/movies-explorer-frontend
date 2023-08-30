@@ -13,8 +13,9 @@ function Profile({ onBurgerButton, isBurgerMenuOpen, onBurgerLink }) {
                 onBurgerButton={onBurgerButton}
             />
 
-            <main className='profile-block'>
-                <h2 className='profile-block__title'>Привет, Виталий!</h2>
+            <main>
+                <section className='profile-block'>
+                <h1 className='profile-block__title'>Привет, Виталий!</h1>
                 <form className='form-profile-block'>
                     <div className='form-profile-block__container'>
                         <label className='form-profile-block__label'>Имя</label>
@@ -47,12 +48,13 @@ function Profile({ onBurgerButton, isBurgerMenuOpen, onBurgerLink }) {
                         />
                     </div>
                 </form>
-                <button className='profile-block__button-edit'>
+                <button className='link profile-block__button-edit' type='submit'>
                     Редактировать
                 </button>
-                <Link to='/' className='profile-block__link'>
+                <Link to='/' className='link profile-block__link'>
                     Выйти из аккаунта
                 </Link>
+                </section>
             </main>
         </>
     );
