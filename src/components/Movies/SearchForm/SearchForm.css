@@ -1,9 +1,12 @@
 .search-form {
+    margin: 65px 14px 0;
+}
+
+.search-form__conteiner {
     display: flex;
     justify-content: start;
     border: 1.5px #aaa solid;
     border-radius: 8px;
-    margin: 65px 14px 0;
     height: 56px;
     align-items: center;
     padding: 0 6px;
@@ -17,6 +20,11 @@
     background-color: #202020;
     border: none;
     width: 195px;
+}
+
+.search-form__input:focus {
+    outline: 0;
+    border-bottom: 2px #4285F4 solid; 
 }
 
 .search-form__button {
@@ -33,10 +41,43 @@
     padding: 0;
 }
 
+.checkbox {
+    display: flex;
+    justify-content: start;
+    column-gap: 13px;
+    margin: 29px 0;
+    border-bottom: 1px #424242 solid;
+    padding-bottom: 62px;
+}
+
+.checkbox__input {
+    background-image: url(../../../images/tumbler-off.svg);
+    width: 36px;
+    height: 20px;
+    cursor: pointer;
+    background-color: #202020;
+    border: none;
+    transition: 0.5s ease all;
+    appearance: none;
+}
+
+.checkbox__input:checked {
+    background-image: url(../../../images/tumbler-on.svg);
+}
+
+.checkbox__text {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+}
+
 @media screen and (min-width: 720px) {
     .search-form {
-        justify-content: space-between;
         margin: 65px 30px 0;
+    }
+
+    .search-form__conteiner {
+        justify-content: space-between;
         height: 70px;
         padding: 0 9px 0 23px;
     }
@@ -51,6 +92,14 @@
         width: 100px;
         height: 52px;
     }
+
+    .checkbox {
+        padding-bottom: 48px;
+    }
+
+    .checkbox__text {
+        font-size: 13px;
+    }
 }
 
 @media screen and (min-width: 1220px) {
@@ -60,5 +109,9 @@
 
     .search-form__input {
         width: 920px;
+    }
+
+    .checkbox {
+        padding-bottom: 40px;
     }
 }

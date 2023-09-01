@@ -51,7 +51,7 @@ function Login() {
                         </div>
                 </form>
 
-                <button className='login__button' type='submit'>
+                <button className='link login__button' type='submit'>
                     Войти
                 </button>
                 <p className='login__quest'>

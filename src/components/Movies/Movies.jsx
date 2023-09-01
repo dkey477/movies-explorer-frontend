@@ -19,13 +19,6 @@ function Movies({ onBurgerButton, isBurgerMenuOpen, onBurgerLink }) {
             />
             <main className='movies'>
                 <SearchForm />
-                <form className='checkbox'>
-                    <input
-                        className='link checkbox__input'
-                        type='checkbox'
-                    ></input>
-                    <span className='checkbox__text'>Короткометражки</span>
-                </form>
                 <MoviesCardList />
             </main>
 

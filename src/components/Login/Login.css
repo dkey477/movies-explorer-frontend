@@ -88,6 +88,7 @@
     margin-top: 283px;
     border-radius: 3px;
     border: none;
+    cursor: pointer;
 }
 
 .login__quest {

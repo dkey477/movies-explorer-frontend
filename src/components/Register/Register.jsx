@@ -19,7 +19,7 @@ function Register() {
                             <label className='form-sign__input-name'>Имя</label>
                             <input
                                 className='form-sign__input'
-                                type='name'
+                                type='text'
                                 name='name'
                                 placeholder='Имя'
                                 minLength='2'

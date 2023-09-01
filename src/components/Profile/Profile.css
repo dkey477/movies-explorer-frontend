@@ -64,6 +64,7 @@
     color: #fff;
     border: none;
     padding-top: 364px;
+    cursor: pointer;
 }
 
 .profile-block__link {

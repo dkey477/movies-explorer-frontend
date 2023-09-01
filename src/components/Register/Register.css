@@ -36,6 +36,7 @@
     margin-top: 213px;
     border-radius: 3px;
     border: none;
+    cursor: pointer;
 }
 
 .register__quest {

@@ -22,13 +22,14 @@
 }
 
 .portfolio__conteiner {
-    display: flex;
-    justify-content: space-between;
     padding: 20px 0;
     border-bottom: 1px #e6e6e6 solid;
+    list-style: none;
 }
 
 .portfolio__link {
+    display: flex;
+    justify-content: space-between;
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
@@ -63,7 +64,7 @@
     }
 
     .portfolio__link {
-        font-size: 30px;
+        font-size: 28px;
         line-height: 50px;
     }
 
