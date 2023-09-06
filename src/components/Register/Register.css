@@ -33,10 +33,14 @@
     color: #fff;
     min-width: 260px;
     min-height: 45px;
-    margin-top: 213px;
     border-radius: 3px;
     border: none;
     cursor: pointer;
+}
+
+.register__button_disable {
+    background-color: #f8f8ff;
+    color: #000;
 }
 
 .register__quest {
@@ -56,6 +60,17 @@
     text-decoration: none;
     cursor: pointer;
     margin: 0;
+}
+
+.register__error {
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 400;
+    color: #ee3465;
+    width: 260px;
+    height: 14px;
+    margin: 180px 0 20px 0;
+    text-align: center;
 }
 
 
@@ -81,7 +96,6 @@
         font-size: 14px;
         line-height: 17px;
         min-width: 396px;
-        margin-top: 127px;
     }
 
     .register__input-block {
@@ -97,6 +111,11 @@
     .register__link {
         font-size: 14px;
         line-height: 17px;
+    }
+
+    .register__error {
+        width: 396px;
+        margin: 96px 0 20px 0;
     }
 }
 
