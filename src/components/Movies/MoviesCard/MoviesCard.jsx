@@ -1,125 +1,51 @@
-import React, { useState } from 'react';
 import './MoviesCard.css';
-import cardmovie from '../../../images/card-movie.png';
 import { useLocation } from 'react-router-dom';
+import { BEAT_URL } from '../../../config/config';
+import { useMoviesApi } from '../../../hooks/useMoviesApi';
 
-function MoviesCard() {
-    const location = useLocation();
+function MoviesCard({ card, isSaved }) {
+  const { pathname } = useLocation();
+  const isMainPage = pathname === '/movies';
+  const { handleSaveMovie, handleDeleteMovie } = useMoviesApi();
 
-    const [isSave, setSave] = useState(false);
+  const convertDuration = (duration) => `${Math.floor(duration / 60)}ч ${duration % 60}м`;
 
-    const buttonClassName =
-        location.pathname === '/movies' && isSave
-            ? 'movie-card__save movie-card__save_active'
-            : location.pathname === '/movies'
-            ? 'movie-card__save'
-            : 'movie-card__save movie-card__save_delete';
-
-    function handleButtonSave() {
-        if (!isSave) setSave(true);
-        else setSave(false);
-    }
-
-    return (
-        <>
-            <li className='movie-card'>
-                <img
-                    className='movie-card__screen'
-                    src={cardmovie}
-                    alt='наименование фильма'
-                />
-                <h2 className='movie-card__title'>33 слова о дизайне</h2>
-                <p className='movie-card__time'>1ч 47м</p>
-                <button
-                    className={`link ${buttonClassName}`}
-                    onClick={handleButtonSave}
-                    type='button'
-                ></button>
-            </li>
-            <li className='movie-card'>
-                <img
-                    className='movie-card__screen'
-                    src={cardmovie}
-                    alt='наименование фильма'
-                />
-                <h2 className='movie-card__title'>33 слова о дизайне</h2>
-                <p className='movie-card__time'>1ч 47м</p>
-                <button
-                    className={`link ${buttonClassName}`}
-                    onClick={handleButtonSave}
-                    type='button'
-                ></button>
-            </li>
-            <li className='movie-card'>
-                <img
-                    className='movie-card__screen'
-                    src={cardmovie}
-                    alt='наименование фильма'
-                />
-                <h2 className='movie-card__title'>33 слова о дизайне</h2>
-                <p className='movie-card__time'>1ч 47м</p>
-                <button
-                    className={`link ${buttonClassName}`}
-                    onClick={handleButtonSave}
-                    type='button'
-                ></button>
-            </li>
-            {/* <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
+  return (
+    <li className="movie-card">
+      <img
+        className="movie-card__screen"
+        src={isMainPage ? BEAT_URL + card.image.url : card.image}
+        alt={`Постер фильма ${card.nameRU}`}
+        onClick={() => window.open(card.trailerLink, '_blank')}
+      />
+      <h2 className="movie-card__title">{card.nameRU}</h2>
+      <p className="movie-card__time">{convertDuration(card.duration)}</p>
+      {
+        isMainPage && !isSaved &&
+        <button
+          className="link movie-card__save"
+          type="button"
+          onClick={() => handleSaveMovie(card)}
+        />
+      }
+      {
+        isMainPage && isSaved &&
+        <button
+          className="link movie-card__save movie-card__save_active"
+          type="button"
+          onClick={() => handleDeleteMovie(card._id)}
+        />
+      }
+      {
+        !isMainPage &&
+        <button
+          className="link movie-card__save movie-card__save_delete"
+          type="button"
+          onClick={() => handleDeleteMovie(card._id)}
+        />
+      }
     </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li>
-    <li className='movie-card'>
-        <img className='movie-card__screen' src={cardmovie} alt="кадр из фильма" />
-        <h2 className='movie-card__title'>33 слова о дизайне</h2>
-        <p className='movie-card__time'>1ч 47м</p>
-        <button className={`link ${buttonClassName}`} onClick={handleButtonSave} type='button'></button>
-    </li> */}
-        </>
-    );
+  );
 }
 
 export default MoviesCard;

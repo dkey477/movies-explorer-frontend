@@ -1,64 +1,68 @@
 .page-not-found {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Inter', 'Arial', sans-serif;
-    font-style: normal;
-    color: #fff;
-    padding-top: 334px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  color: #fff;
+  padding-top: 334px;
 }
 
 .page-not-found__title {
-    font-size: 80px;
-    line-height: 87px;
-    font-weight: 400;
-    margin: 0;
+  font-size: 80px;
+  line-height: 87px;
+  font-weight: 400;
+  margin: 0;
 }
 
 .page-not-found__text {
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: 400;
-    margin: 0;
-    padding-top: 15px;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  margin: 0;
+  padding-top: 15px;
 }
 
 .page-not-found__button {
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: 400;
-    color: #4285f4;
-    text-decoration: none;
-    cursor: pointer;
-    padding-top: 284px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin: 0;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #4285f4;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 284px 0 0;
 }
 
 @media screen and (min-width: 580px) {
-    .page-not-found {
-        padding-top: 412px;
-    }
+  .page-not-found {
+    padding-top: 412px;
+  }
 
-    .page-not-found__title {
-        font-size: 140px;
-        line-height: 159px;
-    }
+  .page-not-found__title {
+    font-size: 140px;
+    line-height: 159px;
+  }
 
-    .page-not-found__text {
-        font-size: 16px;
-        line-height: 19px;
-        padding-top: 11px;
-    }
+  .page-not-found__text {
+    font-size: 16px;
+    line-height: 19px;
+    padding-top: 11px;
+  }
 
-    .page-not-found__button {
-        font-size: 14px;
-        line-height: 17px;
-        padding-top: 187px;
-    }
+  .page-not-found__button {
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 187px;
+  }
 }
 
 @media screen and (min-width: 990px) {
-    .page-not-found {
-        padding-top: 251px;
-    }
+  .page-not-found {
+    padding-top: 251px;
+  }
 }

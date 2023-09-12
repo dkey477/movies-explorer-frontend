@@ -1,20 +1,35 @@
-const BASE_URL = 'https://api.nomoreparties.co';
-// const BASE_URL = "https://api.mestodkey47.nomoreparties.sbs"
+import { API_URL } from '../config/config';
 
-const checkStatus = (res) => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-};
+class MoviesApi {
+  constructor(baseUrl) {
+    this._baseUrl = baseUrl;
+    this._endpoints = {
+      movies: '/movies',
+      signup: '/signup',
+      signin: '/signin',
+      signout: '/signout',
+      users: '/users/me',
+    };
+    this._headers = {
+      'Content-Type': 'application/json',
+    };
+  }
 
-export const getMovies = () => {
-    return fetch(`${BASE_URL}/beatfilm-movies`, {
-        method: 'GET',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-    }).then((res) => checkStatus(res));
-} 
+  _checkResponse(res) {
+    if (res.ok) return res.json();
+    return res.text().then((text) => {
+      throw JSON.parse(text).message || JSON.parse(text).error;
+    });
+  }
+
+  getAllMovies() {
+    return fetch(this._baseUrl, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(this._checkResponse);
+  }
+}
+
+export const MOVIES_API = new MoviesApi(API_URL.beat);

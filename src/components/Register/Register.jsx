@@ -1,110 +1,112 @@
 import './Register.css';
 import logo from '../../images/logo.svg';
-import { Link, useNavigate } from 'react-router-dom';
-import useFormValidation from '../../hooks/useValidateForm';
-import { useEffect } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import useFormAndValidation from '../../hooks/useFormAndValidation';
+import { useAuth } from '../../hooks/useAuth';
+import Preloader from '../Movies/Preloader/Preloader';
+import { useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Register({ loggedIn, handleRegister, errorMessage }) {
+function Register() {
+  const {
+    values, errors, isValid, handleChange, handleChangeEmail
+  } = useFormAndValidation();
+  const { handleRegister, isLoading } = useAuth();
+  const { currentUser } = useContext(CurrentUserContext);
 
-    const navigate = useNavigate();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleRegister({ name: values.name, email: values.email, password: values.password });
+  };
 
-    const { values, errors, isValid, handleChange, emailError } =
-        useFormValidation();
-
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        const { name, email, password } = values;
-        handleRegister(name, email, password);
-    };
-
-    useEffect(() => {
-        if (loggedIn) {
-            navigate('movies');
-        }
-    }, [loggedIn]);
-
-    return (
-        <main className='register'>
-            <section className='register__container'>
-                <Link to='/'>
-                    <img
-                        className='link register__logo'
-                        src={logo}
-                        alt='лого'
-                    />
-                </Link>
-                <h1 className='register__title'>Добро пожаловать!</h1>
-                <form className='form-sign' onSubmit={handleSubmit}>
-                    <div className='form-sign__input-container'>
-                        <label className='form-sign__input-name'>Имя</label>
-                        <input
-                            className='form-sign__input'
-                            type='text'
-                            name='name'
-                            placeholder='Имя'
-                            minLength='2'
-                            maxLength='40'
-                            required
-                            onChange={handleChange}
-                            value={values?.name || ''}
-                        />
-                        <span className='form-sign__input-error'>
-                            {errors.name}
-                        </span>
-                    </div>
-                    <div className='form-sign__input-container'>
-                        <label className='form-sign__input-name'>E-mail</label>
-                        <input
-                            className='form-sign__input'
-                            type='email'
-                            name='email'
-                            placeholder='E-mail'
-                            minLength='5'
-                            maxLength='40'
-                            required
-                            onChange={handleChange}
-                            value={values?.email || ''}
-                        />
-                        <span className='form-sign__input-error'>
-                            {errors.email || emailError}
-                        </span>
-                    </div>
-                    <div className='form-sign__input-container'>
-                        <label className='form-sign__input-name'>Пароль</label>
-                        <input
-                            className='form-sign__input'
-                            type='password'
-                            name='password'
-                            placeholder='Пароль'
-                            minLength='5'
-                            maxLength='40'
-                            required
-                            onChange={handleChange}
-                            value={values?.password || ''}
-                        />
-                        <span className='form-sign__input-error'>
-                            {errors.password}
-                        </span>
-                    </div>
-                </form>
-                <span className='register__error'>{errorMessage}</span>
+  return currentUser.isLoggedIn
+    ? <Navigate to={'/'} replace={true} />
+    : (
+      <main className="register">
+        <section className="register__container">
+          <Link to="/">
+            <img
+              className="link register__logo"
+              src={logo}
+              alt="лого"
+            />
+          </Link>
+          <h1 className="register__title">Добро пожаловать!</h1>
+          <form className="form-sign" id="reg-form" noValidate onSubmit={handleSubmit}>
+            <div className="form-sign__input-container">
+              <label className="form-sign__input-name" htmlFor="name">Имя</label>
+              <input
+                className="form-sign__input"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Имя"
+                minLength="2"
+                maxLength="40"
+                required
+                onChange={handleChange}
+                value={values.name ?? ''}
+              />
+              <span className="form-sign__input-error">
+              {errors.name}
+            </span>
+            </div>
+            <div className="form-sign__input-container">
+              <label className="form-sign__input-name" htmlFor="email">E-mail</label>
+              <input
+                className="form-sign__input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="E-mail"
+                minLength="5"
+                maxLength="40"
+                required
+                onChange={handleChangeEmail}
+                value={values.email ?? ''}
+              />
+              <span className="form-sign__input-error">
+              {errors.email}
+            </span>
+            </div>
+            <div className="form-sign__input-container">
+              <label className="form-sign__input-name" htmlFor="password">Пароль</label>
+              <input
+                className="form-sign__input"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Пароль"
+                minLength="8"
+                maxLength="40"
+                required
+                onChange={handleChange}
+                value={values.password ?? ''}
+              />
+              <span className="form-sign__input-error">
+              {errors.password}
+            </span>
+            </div>
+          </form>
+          {
+            isLoading
+              ? <Preloader />
+              : <>
                 <button
-                    className={`link register__button ${
-                        !isValid || emailError ? 'register__button_disable' : ''
-                    }`}
-                    type='submit'
-                    disabled={!isValid}
-                >
-                    Зарегистрироваться
+                  className={`${isValid ? 'link register__button' : 'register__button register__button_disabled'}`}
+                  type="submit" form="reg-form">
+                  Зарегистрироваться
                 </button>
-                <p className='register__quest'>
-                    Уже зарегистрированы?{' '}
-                    <Link to='/signin' className='link register__link'>
-                        Войти
-                    </Link>
+                <p className="register__quest">
+                  Уже зарегистрированы?{' '}
+                  <Link to="/signin" className="link register__link">
+                    Войти
+                  </Link>
                 </p>
-            </section>
-        </main>
+              </>
+          }
+        </section>
+      </main>
     );
 }
 

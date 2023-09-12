@@ -1,137 +1,94 @@
-const BASE_URL = 'http://localhost:3000';
-// const BASE_URL = "https://api.mestodkey47.nomoreparties.sbs"
-const checkStatus = (res) => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-};
+import { API_URL } from '../config/config';
 
-export const register = (name, email, password) => {
-    return fetch(`${BASE_URL}/signup`, {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ name, email, password }),
-    }).then((res) => checkStatus(res));
-};
+class MainApi {
+  constructor(baseUrl) {
+    this._baseUrl = baseUrl;
+    this._endpoints = {
+      movies: '/movies',
+      signup: '/signup',
+      signin: '/signin',
+      signout: '/signout',
+      users: '/users/me',
+    };
+    this._headers = {
+      'Content-Type': 'application/json',
+    };
+  }
 
-export const login = (email, password) => {
-    return fetch(`${BASE_URL}/signin`, {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ email, password }),
-    }).then((res) => checkStatus(res));
-};
+  _request(endpoint, options) {
+    return fetch(this._baseUrl + endpoint, options)
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.text().then((text) => {
+          throw JSON.parse(text).message || JSON.parse(text).error;
+        });
+      });
+  }
 
-export const checkToken = () => {
-    return fetch(`${BASE_URL}/users/me`, {
-        method: 'GET',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-    }).then((res) => checkStatus(res));
-};
+  getAllMovies() {
+    return this._request(this._endpoints.movies, {
+      headers: this._headers,
+      credentials: 'include',
+    });
+  }
 
-export const logout = () => {
-    return fetch(`${BASE_URL}/signout`, {
-        method: 'GET',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-    }).then((res) => checkStatus(res));
-};
+  saveMovie({ ...movie }) {
+    return this._request(this._endpoints.movies, {
+      headers: this._headers,
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify({ ...movie }),
+    });
+  }
 
-export const editUserInfo = ({ name, email }) => {
-    return fetch(`${BASE_URL}/user/me`, {
-        method: 'PATCH',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ name, email }),
-    }).then((res) => checkStatus(res));
-};
+  deleteMovieById(movieId) {
+    return this._request(`${this._endpoints.movies}/${movieId}`, {
+      headers: this._headers,
+      credentials: 'include',
+      method: 'DELETE',
+    });
+  }
 
-export const saveMovie = ({
-    country,
-    director,
-    duration,
-    year,
-    descripion,
-    image,
-    trailerLink,
-    thumbnail,
-    movieId,
-    nameRU,
-    nameEN,
-}) => {
-    return fetch(`${BASE_URL}/movies`, {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({
-            country,
-            director,
-            duration,
-            year,
-            descripion,
-            image,
-            trailerLink,
-            thumbnail,
-            movieId,
-            nameRU,
-            nameEN,
-        }),
-    }).then((res) => checkStatus(res));
-};
+  register({ name, email, password }) {
+    return this._request(this._endpoints.signup, {
+      headers: this._headers,
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify({ name, email, password }),
+    });
+  }
 
-export const deleteMovie = (movieId) => {
-    return fetch(`${BASE_URL}/movies/${movieId}`, {
-        method: 'DELETE',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-    }).then((res) => checkStatus(res));
-};
+  login({ email, password }) {
+    return this._request(this._endpoints.signin, {
+      headers: this._headers,
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+    });
+  }
 
+  logout() {
+    return this._request(this._endpoints.signout, {
+      headers: this._headers,
+      credentials: 'include'
+    })
+  }
 
-export const getSaveMovies = () => {
-    return fetch(`${BASE_URL}/movies`, {
-        method: 'GET',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-    }).then((res) => checkStatus(res));
-};
+  setCurrentUserData({ name, email }) {
+    return this._request(this._endpoints.users, {
+      headers: this._headers,
+      credentials: 'include',
+      method: 'PATCH',
+      body: JSON.stringify({ name, email }),
+    });
+  }
 
-// export const getUserInfo = () => {
-//     return fetch(`${BASE_URL}/users/me`, {
-//         method: 'GET',
-//         headers: {
-//             Accept: 'application/json',
-//             'Content-Type': 'application/json',
-//         },
-//         credentials: 'include',
-//     }).then((res) => checkStatus(res));
-// };
+  getCurrentUserData() {
+    return this._request(this._endpoints.users, {
+      headers: this._headers,
+      credentials: 'include',
+    });
+  }
+}
 
+export const MAIN_API = new MainApi(API_URL.main);

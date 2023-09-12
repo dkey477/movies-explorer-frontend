@@ -3,33 +3,45 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import SearchForm from '../Movies/SearchForm/SearchForm';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import { useContext } from 'react';
+import { MoviesContext } from '../../contexts/MoviesContext';
+import Preloader from '../Movies/Preloader/Preloader';
+import { useSearchMovies } from '../../hooks/useSearchMovies';
 
+function SavedMovies() {
+  const { movies } = useContext(MoviesContext);
+  const {
+    handleSubmit,
+    sortedMovies,
+    searchQuery, setSearchQuery,
+    isSearching,
+    searchError,
+  } = useSearchMovies({ movies: movies.savedMovies, isMainPage: false, isSavedPage: true });
 
-function SavedMovies({ onBurgerButton, isBurgerMenuOpen, onBurgerLink }) {
-    return (
-        <>
-            <BurgerMenu
-                isBurgerMenuOpen={isBurgerMenuOpen}
-                onBurgerLink={onBurgerLink}
+  return (
+    <>
+      <Header />
+      <main className="movies">
+        <SearchForm
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onSearch={handleSubmit}
+          isMainPage={false}
+          isSearching={isSearching}
+        />
+        {
+          movies.isLoading || isSearching
+            ? <Preloader />
+            : <MoviesCardList
+              movies={sortedMovies}
+              savedMovies={movies.savedMovies}
+              searchError={searchError}
             />
-
-            <Header
-                isBurgerMenuOpen={isBurgerMenuOpen}
-                onBurgerButton={onBurgerButton}
-            />
-            <main className='movies'>
-                <SearchForm />
-                <div className='checkbox'>
-                    <input className='link checkbox__input' type='checkbox'></input>
-                    <span className='checkbox__text'>Короткометражки</span>
-                </div>
-                <MoviesCardList />
-            </main>
-
-            <Footer />
-        </>
-    );
+        }
+      </main>
+      <Footer />
+    </>
+  );
 }
 
 export default SavedMovies;

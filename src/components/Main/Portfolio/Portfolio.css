@@ -1,81 +1,81 @@
 .portfolio {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 70px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 70px 14px;
 }
 
 .portfolio__header {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 0;
-    padding-bottom: 20px;
-    color: #a0a0a0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  padding-bottom: 20px;
+  color: #a0a0a0;
 }
 
 .portfolio__list {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 .portfolio__conteiner {
-    padding: 20px 0;
-    border-bottom: 1px #e6e6e6 solid;
-    list-style: none;
+  padding: 20px 0;
+  border-bottom: 1px #e6e6e6 solid;
+  list-style: none;
 }
 
 .portfolio__link {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 28px;
-    text-decoration: none;
-    cursor: pointer;
-    color: #fff;
-    letter-spacing: -0.04em;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  letter-spacing: -0.04em;
 }
 
 .portfolio__arrow {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 28px;
-    text-decoration: none;
-    cursor: pointer;
-    color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {
-    .portfolio {
-        padding: 90px 48px;
-    }
+  .portfolio {
+    padding: 90px 48px;
+  }
 
-    .portfolio__header {
-        font-size: 18px;
-        line-height: 20px;
-        padding-bottom: 35px;
-    }
+  .portfolio__header {
+    font-size: 18px;
+    line-height: 20px;
+    padding-bottom: 35px;
+  }
 
-    .portfolio__conteiner {
-        padding: 14px 0;
-    }
+  .portfolio__conteiner {
+    padding: 14px 0;
+  }
 
-    .portfolio__link {
-        font-size: 28px;
-        line-height: 50px;
-    }
+  .portfolio__link {
+    font-size: 28px;
+    line-height: 50px;
+  }
 
-    .portfolio__arrow {
-        font-size: 28px;
-        line-height: 60px;
-    }
+  .portfolio__arrow {
+    font-size: 28px;
+    line-height: 60px;
+  }
 }
 
 @media screen and (min-width: 990px) {
-    .portfolio {
-        padding: 102px 68px;
-    }
+  .portfolio {
+    padding: 102px 68px;
+  }
 }

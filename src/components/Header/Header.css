@@ -1,23 +1,23 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 18px 14px;
-    border-bottom: 1px #202020 solid;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 14px;
+  border-bottom: 1px #202020 solid;
 }
 
 .header__logo {
-    max-width: 38px;
-    max-height: 38px;
+  max-width: 38px;
+  max-height: 38px;
 }
 
 @media screen and (min-width: 768px) {
-    .header {
-        padding: 18px 30px;
-    }
+  .header {
+    padding: 18px 30px;
+  }
 }
 
 @media screen and (min-width: 990px) {
-    .header {
-        padding: 18px 70px;
-    }
+  .header {
+    padding: 18px 70px;
+  }
 }
