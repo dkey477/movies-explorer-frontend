@@ -12,7 +12,8 @@ const useFormAndValidation = (initialValues = {}, initialErrors = {}, initialVal
     setValid(evt.target.closest('form').checkValidity());
   };
 
-  const regexForEmail = /^((([0-9A-Za-z]+)|([0-9А-Яа-я]+))@([-A-Za-z]+\.){1,2}[-A-Za-z]{2,})$/u;  const handleChangeEmail = (evt) => {
+  const regexForEmail = /^((([0-9A-Za-z]+)|([0-9А-Яа-я]+))@([-A-Za-z]+\.){1,2}[-A-Za-z]{2,})$/u;
+    const handleChangeEmail = (evt) => {
     handleChange(evt);
     const { type, value } = evt.target;
     if (type === 'email' && !regexForEmail.test(value)) {

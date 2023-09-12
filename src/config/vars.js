@@ -10,11 +10,11 @@ const DEVICE_CONFIG = {
   },
   tablet: {
     name: 'tablet',
-    width: 900,
+    width: 899,
   },
   mobile: {
     name: 'mobile',
-    width: 720,
+    width: 719,
   }
 };
 
