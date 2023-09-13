@@ -1,0 +1,134 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 70px 14px;
+  list-style-type: none;
+}
+
+.project__header {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  border-bottom: 1px #dadada solid;
+  margin: 0;
+  padding-bottom: 28px;
+  letter-spacing: -0.04em;
+}
+
+.project__table {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.project__title {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 56px 0 0 0;
+  letter-spacing: -0.04em;
+}
+
+.project__text {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 16px 0 0 0;
+}
+
+.project__time {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  grid-template-rows: 34px 34px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  margin: 60px 0 0 0;
+}
+
+.project__time-one {
+  margin: 0;
+  background-color: #3ddc54;
+  color: #000;
+  line-height: 35px;
+}
+
+.project__time-four {
+  margin: 0;
+  background-color: #303030;
+  line-height: 35px;
+}
+
+.project__time-lang {
+  margin: 0;
+  line-height: 35px;
+  color: #a0a0a0;
+}
+
+@media screen and (min-width: 768px) {
+  .project {
+    padding: 88px 48px;
+  }
+
+  .project__header {
+    font-size: 22px;
+    line-height: 27px;
+    padding-bottom: 23px;
+  }
+
+  .project__table {
+    display: flex;
+    flex-direction: revert;
+    gap: 40px;
+  }
+
+  .project__title {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 69px 0 0 0;
+    letter-spacing: -0.04em;
+  }
+
+  .project__text {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 21px 0 0 0;
+  }
+
+  .project__time {
+    grid-template-columns: 21% 79%;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 97px 0 0 0;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .project {
+    padding: 110px 69px;
+  }
+
+  .project__text {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 26px 0 0 0;
+  }
+
+  .project__time {
+    grid-template-columns: 20% 80%;
+    margin: 112px 0 0 0;
+  }
+
+  .project__table {
+    display: flex;
+    flex-direction: revert;
+    gap: 50px;
+  }
+}

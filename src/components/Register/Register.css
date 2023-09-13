@@ -1,0 +1,113 @@
+.register {
+  color: #fff;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+}
+
+.register__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 56px;
+  align-items: center;
+}
+
+.register__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.register__title {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 400;
+  margin: 0;
+  padding-top: 50px;
+}
+
+.register__button {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 500;
+  background-color: #4285F4;
+  color: #fff;
+  min-width: 260px;
+  min-height: 45px;
+  margin-top: 213px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.register__button_disabled {
+  color: #c2c2c2;
+  background-color: #f8f8f8;
+  cursor: not-allowed;
+}
+
+.register__quest {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #8b8b8b;
+  padding-top: 14px;
+  margin: 0;
+}
+
+.register__link {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #4285F4;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+
+@media screen and (min-width: 768px) {
+  .register__container {
+    padding-top: 232px;
+    align-items: start;
+    margin: 0 auto;
+    max-width: 396px;
+  }
+
+  .register__title {
+    padding-top: 41px;
+  }
+
+  .form-sign {
+    min-width: 396px;
+    padding-top: 34px;
+  }
+
+  .register__button {
+    font-size: 14px;
+    line-height: 17px;
+    min-width: 396px;
+    margin-top: 127px;
+  }
+
+  .register__input-block {
+    min-width: 396px
+  }
+
+  .register__quest {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 0 auto;
+  }
+
+  .register__link {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .register__container {
+    padding-top: 70px;
+  }
+
+}
